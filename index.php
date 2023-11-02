@@ -8,12 +8,9 @@
 
 <body>
   <section class="mt-5 container p-5">
-
     <td>
-      <a href="mahasiswa_index.php" class="btn btn-primary">Tabel Mahasiswa</a>
-
+      <a href="create_mahasiswa_data.php" class="btn btn-primary">Tabel Mahasiswa</a>
     </td>
-
     <table class="table table-striped">
       <tr>
         <th>no</th>
@@ -30,12 +27,12 @@
       ?>
         <tr>
           <td class="table-primary"><?php echo $no++ ?></td>
-          <td><?php echo $d['name']; ?></td>
+          <td><?= $d['name']; ?></td>
           <td><?php echo $d['kelas']; ?></td>
           <td><?php echo $d['umur']; ?></td>
           <td>
             <a href="create_mahasiswa_data.php" class="btn btn-primary">Tambah</a>
-            <a href=" destroy_mahasiswa_data.php?id=<?php echo $d['id_mahasiswa']; ?>" class="btn btn-danger">HAPUS</a>
+            <a href="destroy_mahasiswa_data.php?id=<?= $d['id'] ?>" class="btn btn-danger">HAPUS</a>
             <a role="button" class="btn btn-primary" href="edit_mahasiswa_data.php?id=<?php echo $d['id_mahasiswa']; ?>">UBAH</a> </button>
           </td>
         </tr>
