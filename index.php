@@ -1,47 +1,54 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-  <title>tampil data</title>
-  <!-- CSS only -->
-  <link rel="stylesheet" href="src/assets/app.css">
-  <!-- <link rel="stylesheet" href="src/assets/app.css"> -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<meta name="author" content="Muhamad Nauval Azhar">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="description" content="This is a login page template based on Bootstrap 5">
+	<title>Bootstrap 5 Login Page</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
-<body>
-  <section class="mt-5 glass container p-5">
-    <td>
-      <a href="create_mahasiswa_data.php" class="btn btn-primary">Tabel Mahasiswa</a>
-    </td>
-    <table class="table table-striped">
-      <tr>
-        <th>no</th>
-        <th>name</th>
-        <th>kelas</th>
-        <th>umur</th>
-        <th>Action</th>
-      </tr>
-      <?php
-      include 'koneksi.php';
-      $no = 1;
-      $data = mysqli_query($koneksi, "select * from mahasiswa");
-      while ($d = mysqli_fetch_array($data)) {
-      ?>
-        <tr>
-          <td class="table-primary"><?php echo $no++ ?></td>
-          <td><?= $d['name']; ?></td>
-          <td><?php echo $d['kelas']; ?></td>
-          <td><?php echo $d['umur']; ?></td>
-          <td>
-            <a href="create_mahasiswa_data.php" class="btn btn-primary">Tambah</a>
-            <a href="destroy_mahasiswa_data.php?id=<?= $d['id'] ?>" class="btn btn-danger">HAPUS</a>
-            <a role="button" class="btn btn-primary" href="edit_mahasiswa_data.php?id=<?php echo $d['id_mahasiswa']; ?>">UBAH</a> </button>
-          </td>
-        </tr>
-      <?php
-      }
-      ?>
-    </table>
-  </section>
-</body>
 
+<body>
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+					<div class="text-center my-5">
+						<img src="src/images/logo.jpg" alt="logo" width="100">
+					</div>
+					<div class="card shadow-lg">
+						<div class="card-body p-5">
+							<h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
+							<form method="POST" action="controller/login.php" class="needs-validation" autocomplete="off">
+								<div class="mb-3">
+									<label class="mb-2 text-muted">Username</label>
+									<input type="text" class="form-control" name="username" placeholder="Input your username" required autofocus>
+									<div class="invalid-feedback">
+										Email is invalid
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<input id="password" placeholder="Input your password" type="password" class="form-control" name="password" required>
+								    <div class="invalid-feedback">
+								    	Password is required
+							    	</div>
+								</div>
+
+								<div class="d-flex align-items-center">
+									<button type="submit" class="btn btn-primary ms-auto">
+										Login
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/login.js"></script>
+</body>
 </html>
