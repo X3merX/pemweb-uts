@@ -9,7 +9,7 @@ $sql = "INSERT INTO mahasiswa (name, kelas, umur)
  VALUES ('$name', '$kelas', '$umur')";
 
 if (mysqli_query($koneksi, $sql)) {
-    header("Location: index.php");
+    header("Location: mahasiswa.php");
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($koneksi);
 }
